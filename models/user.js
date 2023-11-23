@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { hashPassword, format } = require('../utils');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -45,6 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     password: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notNull: {
@@ -53,7 +55,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: {
           msg: "password tidak boleh kosong"
         },
-        len: [6, 10]
+        len: {
+          msg: "password harus >= 6 atau <=10",
+          args: [6, 10]
+        }
       }
     },
     gender: {
@@ -75,31 +80,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "customer",
-      validate: {
-        notNull: {
-          msg: "full name tidak boleh kosong"
-        },
-        notEmpty: {
-          msg: "full name tidak boleh kosong"
-        },
-        isIn: {
-          msg: "role hanya bisa diisi dengan admin dan customer",
-          args: [['admin', 'customer']]
-        }
-      }
     },
     balance: {
       type: DataTypes.NUMBER,
-      allowNull: false,
+      allowNull: true,
       validate: {
-        notNull: {
-          msg: "balance tidak boleh kosong"
-        },
-        notEmpty: {
-          msg: "balance tidak boleh kosong"
-        },
         isNumeric: {
           msg: "type data yang ada masukkan bukan number"
         },
@@ -117,14 +102,20 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     hooks: {
-      // set balance to 0
       beforeCreate: (record, options) => {
         record.dataValues.balance = 0;
+        record.dataValues.role = "customer"
+        record.dataValues.password = hashPassword(record.dataValues.password)
       },
-      // set balance to rupiah
-      afterCreate: (record, options) => {
+      afterCreate: (record) => {
+        delete record.dataValues.password;
         record.dataValues.balance = `Rp${record.dataValues.balance.toLocaleString("id-ID")}`
-      }
+      },
+      afterUpdate: (record) => {
+        delete record.dataValues.password;
+        record.dataValues.balance = `Rp${record.dataValues.balance.toLocaleString("id-ID")}`
+        
+      },
     }
   });
   return User;
