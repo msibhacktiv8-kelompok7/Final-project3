@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      this.hasMany(models.Product)
     }
   }
   Category.init({
@@ -32,14 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     sold_product_amount: {
       type: DataTypes.NUMBER,
-      allowNull: false,
       validate: {
-        notNull: {
-          msg: "sold produc amount tidak boleh kosong"
-        },
-        notEmpty: {
-          msg: "sold produc amount tidak boleh kosong"
-        },
         isNumeric: {
           msg: "type data yang ada masukkan bukan number"
         }
@@ -48,6 +43,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
+    hooks: {
+      beforeCreate: (record, options) => {
+        record.dataValues.sold_product_amount = 0;
+      }
+    }
   });
   return Category;
 };
