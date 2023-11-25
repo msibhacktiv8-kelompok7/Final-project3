@@ -110,8 +110,9 @@ module.exports = (sequelize, DataTypes) => {
       afterCreate: (record) => {
         delete record.dataValues.password;
         record.dataValues.balance = `Rp${record.dataValues.balance.toLocaleString("id-ID")}`
+
       },
-      afterUpdate: (record) => {
+      afterUpdate: (record, options) => {
         delete record.dataValues.password;
         record.dataValues.balance = `Rp${record.dataValues.balance.toLocaleString("id-ID")}`
         
