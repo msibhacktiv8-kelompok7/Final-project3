@@ -9,4 +9,5 @@ const router = express.Router();
 router.post('/', Authentication, Authorization, CategoriesController.create)
 router.get('/', Authentication, Authorization, CategoriesController.get)
 router.patch('/:categoryId', Authentication, Authorization, CategoriesController.update)
+router.delete('/:categoryId', Authentication, Authorization, CategoriesController.delete)
 module.exports = router;

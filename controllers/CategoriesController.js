@@ -80,6 +80,40 @@ class CategoriesController {
         }
 
     }
+
+    static async delete(req, res) {
+        try {
+            const { categoryId } = req.params;
+            const categoryUpdated = await Category.destroy({
+                where: {
+                    id: categoryId
+                },
+                returning: true
+            });
+
+            if (categoryUpdated[0] == false) {
+                return res.status(400).json({
+                    message: "gagal delete category "
+                });
+            }
+
+            res.status(200).json({
+                message : "Ccategory has been successfully deleted"
+            });
+        } catch (e) {
+            if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
+                return res.status(400).json({
+                    message: e.errors[0].message
+                });
+            }
+
+            console.log(e);
+            return res.status(500).json({
+                message: "Internal server error"
+            });
+        }
+
+    }
 }
 
 module.exports = CategoriesController;
