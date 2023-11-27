@@ -40,12 +40,12 @@ module.exports = (sequelize, DataTypes) => {
           msg: "type data yang ada masukkan bukan number"
         },
         max: {
-          msg: "balance yang anda masukkan tidak boleh lebih dari 50.000.000",
-          args: 50000000
+          msg: "price yang anda masukkan tidak boleh lebih dari 50.000.000",
+          args: [50000000]
         },
         min: {
-          msg: "balance yang anda masukkan tidak boleh kurang dari 0",
-          args: 0
+          msg: "price yang anda masukkan tidak boleh kurang dari 0",
+          args: [0]
         }
       }
     },
