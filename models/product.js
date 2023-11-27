@@ -68,7 +68,21 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    CategoryId: DataTypes.INTEGER
+    CategoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "categoryId tidak boleh kosong"
+        },
+        notEmpty: {
+          msg: "categoryId tidak boleh kosong"
+        },
+        isNumeric: {
+          msg: "CategoryId harus berupa number"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Product',
