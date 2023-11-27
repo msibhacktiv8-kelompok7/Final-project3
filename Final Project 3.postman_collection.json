@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "d10c4789-aac0-42cc-893a-17a63404729c",
+		"name": "Final Project 3",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23054784"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\" : \"aufal marom\",\r\n    \"password\" : \"rahasia\",\r\n    \"gender\" : \"maletryrty\",\r\n    \"email\" :\"test1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\" : \"aufal marom\",\r\n    \"password\" : \"rahasia\",\r\n    \"gender\" : \"maletryrty\",\r\n    \"email\" :\"test1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"rahasia\",\r\n    \"email\": \"test1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiY3VzdG9tZXIiLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE1OjU4OjAyLjEyNFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTIzVDE1OjU4OjAyLjEyNFoiLCJpYXQiOjE3MDA5MTQ2ODd9.E7Z-LmEDihcdN-EYU3ojAq4pTF74nmgaFz8e7mXG6gc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"rahasia\",\r\n    \"email\" :\"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "topup",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiY3VzdG9tZXIiLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjUzOjAyLjU4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjUzOjAyLjU4MFoiLCJpYXQiOjE3MDA5MTY3OTd9.mlaYqTS2P6MoObdBacOxoAXKVOZ_DnHqBGhc1ZQggyE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"balance\" : 400000000000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/users/topup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"users",
+								"topup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "create categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InVwZGF0ZUBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwicm9sZSI6ImFkbWluIiwiYmFsYW5jZSI6MCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yM1QxNDoxNzozNC43ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjowNDo0Ni42ODFaIiwiaWF0IjoxNzAwOTE5ODQ2fQ.CLIlJH7nHBaoCM3pAWjLVpRk0vVUVaVbuIoLzLVdllw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"anjayani\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InVwZGF0ZUBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwicm9sZSI6ImFkbWluIiwiYmFsYW5jZSI6MCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yM1QxNDoxNzozNC43ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjowNDo0Ni42ODFaIiwiaWF0IjoxNzAwOTE5ODQ2fQ.CLIlJH7nHBaoCM3pAWjLVpRk0vVUVaVbuIoLzLVdllw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"anjayani\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get categories Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InVwZGF0ZUBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwicm9sZSI6ImFkbWluIiwiYmFsYW5jZSI6MCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yM1QxNDoxNzozNC43ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjowNDo0Ni42ODFaIiwiaWF0IjoxNzAwOTE5ODQ2fQ.CLIlJH7nHBaoCM3pAWjLVpRk0vVUVaVbuIoLzLVdllw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"anjayani2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/categories/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InVwZGF0ZUBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwicm9sZSI6ImFkbWluIiwiYmFsYW5jZSI6MCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yM1QxNDoxNzozNC43ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjowNDo0Ni42ODFaIiwiaWF0IjoxNzAwOTE5ODQ2fQ.CLIlJH7nHBaoCM3pAWjLVpRk0vVUVaVbuIoLzLVdllw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\" : \"anjayani2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/categories/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEwODc3MjJ9.BE2SLi8Y5Qa2MrIhF5q5PdQ6t_EyUbRFZ_UbLUu9RDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"product 1\",\r\n    \"price\" : 900000,\r\n    \"stock\" : 20,\r\n    \"CategoryId\" : 5\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEwODc3MjJ9.BE2SLi8Y5Qa2MrIhF5q5PdQ6t_EyUbRFZ_UbLUu9RDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"product 1\",\r\n    \"price\" : 900000,\r\n    \"stock\" : 20,\r\n    \"CategoryId\" : 5\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEwODc3MjJ9.BE2SLi8Y5Qa2MrIhF5q5PdQ6t_EyUbRFZ_UbLUu9RDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/products/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEwODc3MjJ9.BE2SLi8Y5Qa2MrIhF5q5PdQ6t_EyUbRFZ_UbLUu9RDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CategoryId\" : 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/products/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEwODc3MjJ9.BE2SLi8Y5Qa2MrIhF5q5PdQ6t_EyUbRFZ_UbLUu9RDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/products/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"products",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
