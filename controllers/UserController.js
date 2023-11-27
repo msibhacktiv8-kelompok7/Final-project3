@@ -14,7 +14,7 @@ class UserController {
             const data = req.body;
             const newUser = await User.create(data);
             return res.status(201).json({
-                User: newUser,
+                User: newUser
             });
         } catch (e) {
             if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
