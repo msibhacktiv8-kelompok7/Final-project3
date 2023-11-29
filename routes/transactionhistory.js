@@ -1,10 +1,12 @@
 const express = require('express');
 const TransactionsHistoryController = require('../controllers/TransactionsHistoryController');
 const Authentication = require('../middleware/Authentication');
+const Authorization = require('../middleware/Authorization');
 const router = express.Router();
 
 
-router.post('/', Authentication,TransactionsHistoryController.create);
-router.get('/user', Authentication,TransactionsHistoryController.read);
+router.post('/', Authentication, TransactionsHistoryController.create);
+router.get('/user', Authentication, TransactionsHistoryController.readuser);
+router.get('/admin', Authentication, Authorization, TransactionsHistoryController.readadmin);
 
 module.exports = router;

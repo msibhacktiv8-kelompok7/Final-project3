@@ -3,7 +3,7 @@ const sequelize = require('sequelize');
 
 class TransactionsHistoryController {
     static async create(req, res) {
-        
+
         try {
             const data = req.body;
             const user = req.user;
@@ -87,27 +87,72 @@ class TransactionsHistoryController {
         }
     }
 
-    static async read(req, res) {
-        const user = req.user;
+    static async readuser(req, res) {
+        try {
+            const user = req.user;
 
-        const userdb = await User.findOne({
-            where: {
-                id: user.id
+            const userdb = await User.findOne({
+                where: {
+                    id: user.id
+                }
+            });
+
+
+            const transaction = await TransactionsHistory.findAll({
+                where: {
+                    UserId: userdb.id
+                },
+                include: {
+                    model: Product
+                }
+            });
+
+            res.status(200).json({
+                transactionHistories: transaction
+            });
+        } catch (e) {
+            if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
+                return res.status(400).json({
+                    message: e.errors[0].message
+                });
             }
-        });
 
+            console.log(e);
+            return res.status(500).json({
+                message: "Internal server error"
+            });
+        }
+    }
+    static async readadmin(req, res) {
+        try {
+            const user = req.user;
+            const transaction = await TransactionsHistory.findAll({
+                include: [
+                    {
+                        model: Product
+                    },
+                    {
+                        model: User,
+                        attributes: ['id', 'email', 'balance', 'gender', 'role']
+                    }
+                ]
+            });
 
-        const transaction = await TransactionsHistory.findAll({
-            where: {
-                UserId: userdb.id
-            },
-            include: {
-                model: Product
+            res.status(200).json({
+                transactionHistories: transaction
+            });
+        } catch (e) {
+            if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
+                return res.status(400).json({
+                    message: e.errors[0].message
+                });
             }
-        });
-        console.log(transaction);
 
-        res.status(200).json("ok");
+            console.log(e);
+            return res.status(500).json({
+                message: "Internal server error"
+            });
+        }
     }
 }
 
