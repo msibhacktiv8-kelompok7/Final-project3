@@ -19,6 +19,12 @@ class TransactionsHistoryController {
                 }
             });
 
+            if (userold === null) {
+                return res.status(400).json({
+                    message: "user tidak ada"
+                });
+            }
+
             if (productold === null) {
                 return res.status(400).json({
                     message: "product tidak ditemukan"
