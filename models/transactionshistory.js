@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Product);
+ 
     }
   }
   TransactionsHistory.init({
@@ -20,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        isNull: {
+        notNull: {
           msg: "quantity tidak boleh kosong"
         },
         isInt: {
@@ -32,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        isNull: {
-          msg: "quantity tidak boleh kosong"
+        notNull: {
+          msg: "total price tidak boleh kosong"
         },
         isInt: {
           msg: "type data yang anda masukkan bukan integer"

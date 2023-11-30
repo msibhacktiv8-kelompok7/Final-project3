@@ -90,11 +90,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         max: {
           msg: "balance yang anda masukkan tidak boleh lebih dari 100.000.000",
-          args: 100000000
+          args: [100000000]
         },
         min: {
           msg: "balance yang anda masukkan tidak boleh kurang dari 0",
-          args: 0
+          args: [0]
         }
       }
     }
