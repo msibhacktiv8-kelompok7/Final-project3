@@ -15,7 +15,7 @@ class ProductController {
             }
 
             console.log(e.message);
-            if (e.message.includes('fk_category')) {
+            if (e.message.includes('fk_category') || e.message.includes('fk_categories')) {
                 return res.status(400).json({
                     message: "Kategori id tidak ada"
                 });
