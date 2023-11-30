@@ -168,7 +168,13 @@ class TransactionsHistoryController {
                 ]
             });
 
-            res.status(200).json({
+            if (transaction === null) {
+                return res.status(400).json({
+                    message: "transaction tidak ditemukan"
+                });
+            }
+
+            return res.status(200).json({
                 transactionHistories: transaction
             });
         } catch (e) {
