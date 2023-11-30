@@ -73,7 +73,7 @@ class TransactionsHistoryController {
                     product_name: productold.title
                 }
             });
-        } catch (error) {
+        } catch (e) {
             if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
                 return res.status(400).json({
                     message: e.errors[0].message
