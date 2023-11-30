@@ -154,6 +154,36 @@ class TransactionsHistoryController {
             });
         }
     }
+    static async getbyid(req, res) {
+        try {
+            const id = req.params.transactionId
+            const transaction = await TransactionsHistory.findOne({
+                where: {
+                    id: id
+                },
+                include: [
+                    {
+                        model: Product
+                    }
+                ]
+            });
+
+            res.status(200).json({
+                transactionHistories: transaction
+            });
+        } catch (e) {
+            if (e.name === "SequelizeValidationError" || e.name === "SequelizeUniqueConstraintError") {
+                return res.status(400).json({
+                    message: e.errors[0].message
+                });
+            }
+
+            console.log(e);
+            return res.status(500).json({
+                message: "Internal server error"
+            });
+        }
+    }
 }
 
 module.exports = TransactionsHistoryController;
