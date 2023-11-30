@@ -84,20 +84,20 @@ class CategoriesController {
     static async delete(req, res) {
         try {
             const { categoryId } = req.params;
-            const categoryUpdated = await Category.destroy({
+            const categoryDeleted = await Category.destroy({
                 where: {
                     id: categoryId
                 },
                 returning: true
             });
 
-            if (categoryUpdated[0] == false) {
+            if (categoryDeleted == false) {
                 return res.status(400).json({
                     message: "gagal delete category "
                 });
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 message : "Ccategory has been successfully deleted"
             });
         } catch (e) {

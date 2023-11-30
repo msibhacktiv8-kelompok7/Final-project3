@@ -25,12 +25,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users/register",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/users/register",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
 								"register"
@@ -60,12 +58,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/users",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"users"
 							]
@@ -80,7 +76,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"password\": \"rahasia\",\r\n    \"email\": \"test1@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"password\": \"rahasia\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,12 +84,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users/login",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/users/login",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
 								"login"
@@ -123,12 +117,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/users",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"users"
 							]
@@ -157,12 +149,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users/topup",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/users/topup",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
 								"topup"
@@ -234,12 +224,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/categories",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/categories",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"categories"
 							]
@@ -268,12 +256,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/categories/3",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/categories/3",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"categories",
 								"3"
@@ -303,15 +289,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/categories/3",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/categories/7",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"categories",
-								"3"
+								"7"
 							]
 						}
 					},
@@ -380,12 +364,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/products",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/products",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"products"
 							]
@@ -414,15 +396,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/products/11",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/products/12",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"products",
-								"11"
+								"12"
 							]
 						}
 					},
@@ -449,15 +429,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/products/11",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/products/12",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"products",
-								"11"
+								"12"
 							]
 						}
 					},
@@ -484,15 +462,110 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/products/11",
-							"protocol": "http",
+							"raw": "{{base_url_dev}}/products/12",
 							"host": [
-								"localhost"
+								"{{base_url_dev}}"
 							],
-							"port": "9000",
 							"path": [
 								"products",
-								"11"
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "create transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiY3VzdG9tZXIiLCJiYWxhbmNlIjo3NjAwMCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjo1MzowMi41ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMzoxNTowNS43NDRaIiwiaWF0IjoxNzAxMTczMjEyfQ.8onvdeg4EBNMhb-sl6tlb9ZhpwslsJtelfq5SFJwSPs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 1,\r\n    \"quantity\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_dev}}/transactions",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transaction user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiY3VzdG9tZXIiLCJiYWxhbmNlIjo3NjAwMCwiY3JlYXRlZEF0IjoiMjAyMy0xMS0yNVQxMjo1MzowMi41ODBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMS0yNVQxMzoxNTowNS43NDRaIiwiaWF0IjoxNzAxMTczMjEyfQ.8onvdeg4EBNMhb-sl6tlb9ZhpwslsJtelfq5SFJwSPs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_dev}}/transactions/user",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"transactions",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transaction admin",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get transaction by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbF9uYW1lIjoiYXVmYWwgbWFyb20iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImdlbmRlciI6Im1hbGUiLCJyb2xlIjoiYWRtaW4iLCJiYWxhbmNlIjowLCJjcmVhdGVkQXQiOiIyMDIzLTExLTIzVDE0OjE3OjM0Ljc4MFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTI1VDEyOjA0OjQ2LjY4MVoiLCJpYXQiOjE3MDEyNTUyNTh9.GKllh72LuYzyYIdvTbDJglEhOVyzIbARxbBb35cqMHo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://final-project3-production-c1d3.up.railway.app/transactions/4",
+							"protocol": "https",
+							"host": [
+								"final-project3-production-c1d3",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"transactions",
+								"4"
 							]
 						}
 					},
